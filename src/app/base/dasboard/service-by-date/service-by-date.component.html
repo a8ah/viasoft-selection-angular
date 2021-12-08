@@ -2,12 +2,14 @@
 
 <div style="margin-top: 30px">
   <p-panel header="Estado de los servicios">
-    <div class="grid">
+    <div class="grid" class="col-12">
       <form [formGroup]="formFilterByDate">
-        <div class="p-field p-col-12 p-md-4" style="margin-left: 30px">
-          <label for="time" style="margin-right: 20px">Fecha inicial</label>
+        <div class="p-field p-col-12 p-md-4 col-5" style="margin-left: 30px">
+          <label class="col-6" for="time" style="margin-right: 20px"
+            >Fecha inicial</label
+          >
           <p-calendar
-           
+            class="col-6"
             formControlName="date_begin_F"
             [required]="true"
             [showTime]="true"
@@ -16,10 +18,12 @@
           ></p-calendar>
         </div>
 
-        <div class="p-field p-col-12 p-md-4" style="margin-left: 30px">
-          <label for="time" style="margin-right: 20px">Fecha final</label>
+        <div class="p-field p-col-12 p-md-4 col-5" style="margin-left: 30px">
+          <label for="time" style="margin-right: 20px" class="col-6"
+            >Fecha final</label
+          >
           <p-calendar
-            
+            class="col-6"
             formControlName="date_end_F"
             [required]="true"
             [showTime]="true"
@@ -27,16 +31,17 @@
             dateFormat="yy.mm.dd"
           ></p-calendar>
         </div>
-
-        <button
-          pButton
-          pRipple
-          type="button"
-          icon="pi pi-search"
-          class="p-button-rounded"
-          (click)="findByDateRange()"
-          style="margin-left: 30px"
-        ></button>
+        <div clss="col-1">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-search"
+            class="p-button-rounded"
+            (click)="findByDateRange()"
+            style="margin-left: 30px"
+          ></button>
+        </div>
       </form>
     </div>
   </p-panel>

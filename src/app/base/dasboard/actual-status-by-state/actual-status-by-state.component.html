@@ -27,7 +27,7 @@
         >
           <p-card>
             <div class="col-9">{{ item.service }}</div>
-            <div class="col-3">{{ item.status }}</div>
+            <div class="col-3"> <i class="pi {{ item.status  | stringToIcon }} " style="font-size: 1rem"></i></div>
           </p-card>
         </div>
       </div>

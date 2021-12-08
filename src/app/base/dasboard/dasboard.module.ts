@@ -14,9 +14,10 @@ import {ButtonModule} from 'primeng/button';
 
 import { ActualStatusByStateComponent } from './actual-status-by-state/actual-status-by-state.component';
 import { ServiceByDateComponent } from './service-by-date/service-by-date.component';
+import { StringToIconPipe } from './string-to-icon.pipe';
 
 @NgModule({
-  declarations: [MainDashboardComponent, ActualStatusByStateComponent, ServiceByDateComponent],
+  declarations: [MainDashboardComponent, ActualStatusByStateComponent, ServiceByDateComponent, StringToIconPipe],
   imports: [
     CommonModule,
     FormsModule,
