@@ -25,10 +25,10 @@ export class DashboardService {
     return this.http.get(this.baseUrl+"history/actual-status/"+id,{observe: 'response', responseType: 'json'})
   }
 
-  getStatusByDateRange(start:any,end:any){
+  getStatusByDateRange(start:any,end:any,pNumber:any, pSize:any){
     return this.http.get(this.baseUrl+"history/status-by-time-range",
                         {observe: 'response', responseType: 'json',
-                        params: {startDate: start, endDate: end}})
+                        params: {startDate: start, endDate: end,pageNumber: pNumber,pageSize: pSize}})
   }
 
   getActualStatus(){

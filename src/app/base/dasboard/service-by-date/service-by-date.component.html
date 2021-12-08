@@ -8,11 +8,13 @@
           <label class="col-6" for="time" style="margin-right: 20px"
             >Fecha inicial</label
           >
+          
           <p-calendar
             class="col-6"
             formControlName="date_begin_F"
             [required]="true"
-            [showTime]="true"
+            [showTime]="false"
+            [showIcon]="true" 
             inputId="time"
             dateFormat="yy.mm.dd"
           ></p-calendar>
@@ -26,7 +28,8 @@
             class="col-6"
             formControlName="date_end_F"
             [required]="true"
-            [showTime]="true"
+            [showTime]="false"
+            [showIcon]="true" 
             inputId="time"
             dateFormat="yy.mm.dd"
           ></p-calendar>
@@ -44,6 +47,43 @@
         </div>
       </form>
     </div>
+  </p-panel>
+</div>
+
+<div *ngIf="serviceActualStatus" style="margin-top: 30px">
+  <div class="p-mb-3">
+    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+</div>
+  <p-panel header="Estado de los servicios el {{serviceActualStatus[0][1][0].createdDate}}">
+    <!-- <p-table [value]="serviceActualStatus" [paginator]="true"  [showCurrentPageReport]="true" [(first)]="firstElement"
+     [rowsPerPageOptions]="[10,25,50]"> -->
+    <!-- <p-table [value]="serviceActualStatus" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"> -->
+    <p-table [value]="serviceActualStatus">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Autorizador</th>
+          <th>Recepção Evento4</th>
+          <th>Consulta Cadastro4</th>
+          <th>Tempo Médio</th>
+          <th>Status Serviço4</th>
+          <th>Consulta Protocolo4</th>
+          <th>Inutilização4</th>
+          <th>Retorno Autorização4</th>
+          <th>Autorização4</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-row>
+        <tr>
+          <td>{{ row[0].state }}</td>
+          <td *ngFor="let actualStatus of row[1]">
+            <i class="pi {{ actualStatus.status  | stringToIcon }} " style="font-size: 1rem"></i>  
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </p-panel>
 </div>
 
