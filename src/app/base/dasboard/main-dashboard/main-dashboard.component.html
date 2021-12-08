@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div style="width: 20%; margin-top: 30px">
+    <p-card>
+      {{ moreAffectedState }}
+    </p-card>
+</div>
+
+<div style="margin-top: 30px">
+    <p-panel header="Estado actual de los servicios">
+      <p-table [value]="serviceActualStatus">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Autorizador</th>
+            <th>Recepção Evento4</th>
+            <th>Consulta Cadastro4</th>
+            <th>Tempo Médio</th>
+            <th>Status Serviço4</th>
+            <th>Consulta Protocolo4</th>
+            <th>Inutilização4</th>
+            <th>Retorno Autorização4</th>
+            <th>Autorização4</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+          <tr>
+            <td>{{ row[0].state }}</td>
+            <td *ngFor="let actualStatus of row[1]">
+                {{ actualStatus.status }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+
+<router-outlet></router-outlet>

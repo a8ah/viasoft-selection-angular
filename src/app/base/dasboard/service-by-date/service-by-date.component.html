@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div style="margin-top: 30px">
+  <p-panel header="Estado de los servicios">
+    <div class="grid">
+      <form [formGroup]="formFilterByDate">
+        <div class="p-field p-col-12 p-md-4" style="margin-left: 30px">
+          <label for="time" style="margin-right: 20px">Fecha inicial</label>
+          <p-calendar
+           
+            formControlName="date_begin_F"
+            [required]="true"
+            [showTime]="true"
+            inputId="time"
+            dateFormat="yy.mm.dd"
+          ></p-calendar>
+        </div>
+
+        <div class="p-field p-col-12 p-md-4" style="margin-left: 30px">
+          <label for="time" style="margin-right: 20px">Fecha final</label>
+          <p-calendar
+            
+            formControlName="date_end_F"
+            [required]="true"
+            [showTime]="true"
+            inputId="time"
+            dateFormat="yy.mm.dd"
+          ></p-calendar>
+        </div>
+
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-search"
+          class="p-button-rounded"
+          (click)="findByDateRange()"
+          style="margin-left: 30px"
+        ></button>
+      </form>
+    </div>
+  </p-panel>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div style="width: 20%; margin-top: 30px">
+    <form [formGroup]="form">
+      <p-autoComplete
+        [formControlName]="estado"      
+        [suggestions]="searchStates"
+        (completeMethod)="search($event)"
+        placeholder="State name"
+        [dropdown]="true"
+        dataKey="id"
+        field="name"
+        [forceSelection]="true"
+        (onSelect)="onSelect($event)"
+      >
+      </p-autoComplete>
+    </form>
+  </div>
+  
+  <div style="margin-top: 30px">
+    <p-panel header="{{ filteredState }}">
+      <div class="grid">
+        <div
+          *ngFor="let item of serviceStatusFilterByState"
+          class="col-3"
+          style="margin-top: 30px"
+        >
+          <p-card>
+            <div class="col-9">{{ item.service }}</div>
+            <div class="col-3">{{ item.status }}</div>
+          </p-card>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+
+<router-outlet></router-outlet>
