@@ -7,7 +7,7 @@ import { DashboardService } from '../dashboard.service';
 @Component({
   selector: 'app-service-by-date',
   templateUrl: './service-by-date.component.html',
-  styleUrls: ['./service-by-date.component.css']
+  styleUrls: ['./service-by-date.component.scss']
 })
 export class ServiceByDateComponent implements OnInit {
 

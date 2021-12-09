@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./base/dasboard/dasboard.module').then(m => m.DasboardModule)
+    loadChildren: () => import('./layaout/layaout.module').then(m => m.LayaoutModule)
     },
 ];
 @NgModule({

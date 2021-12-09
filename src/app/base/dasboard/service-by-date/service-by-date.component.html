@@ -1,14 +1,11 @@
 <app-header></app-header>
 
-<div style="margin-top: 30px">
-  <p-panel header="Estado de los servicios">
-    <div class="grid" class="col-12">
+<div class="elementos card-bg-color">
+  <p-panel header="Estado de los servicios">    
       <form [formGroup]="formFilterByDate">
-        <div class="p-field p-col-12 p-md-4 col-5" style="margin-left: 30px">
-          <label class="col-6" for="time" style="margin-right: 20px"
-            >Fecha inicial</label
-          >
-          
+        <div class="grid">
+        <div class="p-field p-col-12 p-md-4 col-2 m-lefth" >
+          <label class="col-6 m-rigth" for="time">Fecha inicial</label>          
           <p-calendar
             class="col-6"
             formControlName="date_begin_F"
@@ -20,9 +17,8 @@
           ></p-calendar>
         </div>
 
-        <div class="p-field p-col-12 p-md-4 col-5" style="margin-left: 30px">
-          <label for="time" style="margin-right: 20px" class="col-6"
-            >Fecha final</label
+        <div class="p-field p-col-12 p-md-4 col-2 m-lefth" >
+          <label for="time" class="col-6 m-rigth">Fecha final</label
           >
           <p-calendar
             class="col-6"
@@ -34,7 +30,7 @@
             dateFormat="yy.mm.dd"
           ></p-calendar>
         </div>
-        <div clss="col-1">
+        <div clss="elementos col-1" style="margin-left: 50px; margin-top: 25px;">
           <button
             pButton
             pRipple
@@ -42,25 +38,22 @@
             icon="pi pi-search"
             class="p-button-rounded"
             (click)="findByDateRange()"
-            style="margin-left: 30px"
+           
           ></button>
         </div>
+      </div>
       </form>
-    </div>
   </p-panel>
 </div>
 
-<div *ngIf="serviceActualStatus" style="margin-top: 30px">
-  <div class="p-mb-3">
-    <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
-    <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
-    <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
-</div>
+<div *ngIf="serviceActualStatus" class="elementos">
+  
   <p-panel header="Estado de los servicios el {{serviceActualStatus[0][1][0].createdDate}}">
-    <!-- <p-table [value]="serviceActualStatus" [paginator]="true"  [showCurrentPageReport]="true" [(first)]="firstElement"
-     [rowsPerPageOptions]="[10,25,50]"> -->
-    <!-- <p-table [value]="serviceActualStatus" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"> -->
+    <div class="p-mb-3">
+      <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+      <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+  </div>
     <p-table [value]="serviceActualStatus">
       <ng-template pTemplate="header">
         <tr>
@@ -79,7 +72,7 @@
         <tr>
           <td>{{ row[0].state }}</td>
           <td *ngFor="let actualStatus of row[1]">
-            <i class="pi {{ actualStatus.status  | stringToIcon }} " style="font-size: 1rem"></i>  
+            <i class="pi {{ actualStatus.status  | stringToIcon }} "></i>  
           </td>
         </tr>
       </ng-template>
