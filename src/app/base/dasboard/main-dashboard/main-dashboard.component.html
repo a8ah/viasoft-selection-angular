@@ -2,18 +2,21 @@
 
 <div class="elementos width card-bg-color">
   <p-panel header="Estado con mas afectaciones de servicio detectadas">
-    <div class="grid">
-      <div class="col-12 md:col-6 lg:col-6">
-        <p-card>
-          {{ moreAffectedState }}
+    <div class="grid" *ngIf="affectedTimes else noAffectation">
+      <div class="col-12 md:col-6 lg:col-6" >
+        <p-card class="text-aling">
+          <h3>{{ moreAffectedState }} </h3>
         </p-card>
       </div>
       <div class="col-12 md:col-6 lg:col-6">
-        <p-card>
-          {{ affectedTimes }}
+        <p-card class="text-aling"> 
+          <h3>  {{ affectedTimes }} </h3>
         </p-card>
       </div>
     </div>
+    <ng-template #noAffectation >
+      <h3 class="text-aling">"No affectations registered to date..."</h3>
+    </ng-template>
   </p-panel>
 </div>
 

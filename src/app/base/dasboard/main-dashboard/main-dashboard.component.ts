@@ -25,11 +25,7 @@ export class MainDashboardComponent implements OnInit {
     this.dashboardService.moreAffectedState().subscribe(
       (result: any) =>{
         this.affectedTimes=result.body.affectedTimes;
-        if(result.body.affectedTimes){
-          this.moreAffectedState= result.body.state;
-        }else{
-          this.moreAffectedState="No affectations were registered to date..."
-        }
+        result.body.affectedTimes ? this.moreAffectedState=result.body.state:this.moreAffectedState=null
       },
       error => {
         console.log(error);
